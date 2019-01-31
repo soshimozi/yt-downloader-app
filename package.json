@@ -1,0 +1,21 @@
+{
+  "name": "create-react-app-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "daemonize2": "^0.4.2",
+    "express": "^4.16.4",
+    "youtube-dl": "^1.12.2"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  },
+  "scripts": {
+    "start": "node daemon.js start",
+    "stop": "node daemon.js stop"
+  },
+  "author": "Scott McCain <scott.mccain@gmail.com> (bitwisemobile.com)",
+  "license": "MIT"
+}

@@ -1,0 +1,46 @@
+version: 0.0
+os: linux
+files:
+- source: /
+  destination: /home/ubuntu/youtube-downloader-app
+permissions:
+- object: /home/ubuntu
+  pattern: "youtube-downloader-app"
+  owner: ubuntu
+  group: ubuntu
+  type:
+    - directory  
+- object: /home/ubuntu/youtube-downloader-app
+  pattern: "*"
+  owner: ubuntu
+  group: ubuntu
+  type:
+    - file
+- object: /home/ubuntu/youtube-downloader-app
+  pattern: "*"
+  owner: ubuntu
+  group: ubuntu
+  type:
+    - directory  
+- object: /home/ubuntu/youtube-downloader-app/bin
+  pattern: "**"
+  mode: 777
+  owner: ubuntu
+  group: ubuntu
+- object: /home/ubuntu/youtube-downloader-app/client
+  pattern: "**"
+  owner: ubuntu
+  group: ubuntu
+hooks:
+  AfterInstall:
+    - location: bin/install.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: bin/app-start.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStop:
+    - location: bin/app-stop.sh
+      timeout: 300
+      runas: ubuntu
